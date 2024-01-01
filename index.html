@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Login</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 150px;
+        }
+
+        h1 {
+            color: #00ff00;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #00ff00;
+            background-color: #222;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #00ff00;
+            color: #111;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Cyber Style for Greeting Window */
+        #greeting-container {
+            background-color: #111;
+            color: #00ff00;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+        }
+
+        .download-link {
+            color: #0000ff; /* Blue color for the download links */
+            text-decoration: none;
+            margin: 10px;
+            display: block;
+        }
+    </style>
+    <script>
+        function validateLogin() {
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");
+
+            var username = usernameInput.value.trim();
+            var password = passwordInput.value.trim();
+
+            if (username === "Teknik AB" && password === "teknikab.dev") {
+                // Redirect to a new window with a cyber-style greeting and multiple download links
+                var greetingWindow = window.open("", "_blank");
+                greetingWindow.document.write(`
+                    <html>
+                        <head>
+                            <title>Cyber Greeting</title>
+                            <style>
+                                body {
+                                    background-color: #111;
+                                    color: #00ff00;
+                                    font-family: Arial, sans-serif;
+                                    text-align: center;
+                                    margin: 20px;
+                                }
+                                h1 {
+                                    color: #00ff00;
+                                }
+                                #greeting-container {
+                                    background-color: #111;
+                                    color: #00ff00;
+                                    padding: 20px;
+                                    margin: 20px;
+                                    border: 2px solid #00ff00;
+                                    border-radius: 10px;
+                                }
+                                a {
+                                    text-decoration: none;
+                                }
+                                .download-link {
+                                    color: #0000ff; /* Blue color for the download links */
+                                    margin: 10px;
+                                    display: block;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <div id="greeting-container">
+                                <h1>Hello, ${username}!</h1>
+                                <p>Welcome to the Cyber World.</p>
+                                <p>Download:</p>
+                                <a class="download-link" href="teknikabgamesnewcode.html" download>File 1</a>
+                                <a class="download-link" href="File2.html" download>File 2</a>
+                                <a class="download-link" href="File3.html" download>File 3</a>
+                            </div>
+                        </body>
+                    </html>
+                `);
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cyber Login Platform</h1>
+    <form onsubmit="validateLogin(); return false;">
+        <label for="username">Username:</label>
+        <br>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <br>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
