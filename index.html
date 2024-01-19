@@ -52,6 +52,10 @@
         }
     </style>
     <script>
+        function encryptPassword(password) {
+            return btoa(password); // Base64 encoding for simplicity (you may want to use a more secure encryption method)
+        }
+
         function validateLogin() {
             var usernameInput = document.getElementById("username");
             var passwordInput = document.getElementById("password");
@@ -59,7 +63,10 @@
             var username = usernameInput.value.trim();
             var password = passwordInput.value.trim();
 
-            if (username === "Teknik AB" && password === "teknikab.dev") {
+            // Encrypt the entered password
+            var encryptedPassword = encryptPassword(password);
+
+            if (username === "Teknik AB" && encryptedPassword === "dGVrbmlrYWIuZGV2") { // Base64-encoded ""
                 // Redirect to a new window with a cyber-style greeting and multiple download links
                 var greetingWindow = window.open("", "_blank");
                 greetingWindow.document.write(`
