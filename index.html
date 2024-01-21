@@ -52,8 +52,19 @@
         }
     </style>
     <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // Disable keyboard shortcuts (Ctrl+Shift+I, Ctrl+Shift+J, and F12)
+        document.addEventListener('keydown', function (e) {
+            if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j')) || e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+
         function encryptPassword(password) {
-            return btoa(password); // Base64 encoding for simplicity (you may want to use a more secure encryption method)
+            return btoa(password);
         }
 
         function validateLogin() {
@@ -63,10 +74,9 @@
             var username = usernameInput.value.trim();
             var password = passwordInput.value.trim();
 
-            // Encrypt the entered password
             var encryptedPassword = encryptPassword(password);
 
-            if (username === "Teknik AB" && encryptedPassword === "dGVrbmlrYWIuZGV2") { // Base64-encoded ""
+            if (username === "Teknik AB" && encryptedPassword === "dGVrbmlrYWIuZGV2") { 
                 // Redirect to a new window with a cyber-style greeting and multiple download links
                 var greetingWindow = window.open("", "_blank");
                 greetingWindow.document.write(`
